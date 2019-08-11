@@ -84,6 +84,11 @@ class DropdownTreeSelect extends Component {
       showDropdown: /initial|always/.test(showDropdown) || prevState.showDropdown === true,
       ...this.treeManager.getTreeAndTags(),
     }))
+    if (showDropdown === 'initial') {
+      setTimeout(() => {
+        document.addEventListener('click', this.handleOutsideClick, false)
+      }, 1)
+    }
   }
 
   resetSearchState = () => {
