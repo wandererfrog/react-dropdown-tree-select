@@ -39,7 +39,6 @@ jspm_packages
 
 # build outputs
 docs/bundle.js
-dist
 *.tgz
 
 # Webstorm cache
