@@ -48,6 +48,15 @@ const Simple = () => (
       sortable
       className="demo"
     />
+    <DropdownTreeSelect
+      data={data}
+      onChange={onChange}
+      onAction={onAction}
+      onNodeToggle={onNodeToggle}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      className="demo"
+    />
   </div>
 )
 
