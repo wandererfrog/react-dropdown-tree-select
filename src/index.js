@@ -45,6 +45,7 @@ class DropdownTreeSelect extends Component {
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
     id: PropTypes.string,
+    sortable: PropTypes.bool,
     searchPredicate: PropTypes.func,
     inlineSearchInput: PropTypes.bool,
   }
@@ -325,7 +326,7 @@ class DropdownTreeSelect extends Component {
               tags={tags}
               onTagRemove={this.onTagRemove}
               onReorderList={this.onReorderList}
-              sortable
+              sortable={sortable}
               {...commonProps}
             >
               {!inlineSearchInput && searchInput}
