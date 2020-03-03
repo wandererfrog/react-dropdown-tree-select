@@ -60,65 +60,7 @@ class Tags extends PureComponent {
           getTags(tags, onTagRemove, readOnly, disabled, texts.labelRemove)
         ) : (
           <ReactSortable
-            list={[
-              {
-                "value": 0,
-                "label": "Total",
-                "categories": [
-                  {
-                    "value": 0,
-                    "label": "Total",
-                    "checked": true,
-                    "master": 0
-                  }
-                ],
-                "expanded": false,
-                "_depth": 0,
-                "_id": "rdts1-1",
-                "_children": [
-                  "rdts1-1-0"
-                ],
-                "partial": false,
-                "checked": true
-              },
-              {
-                "value": 1,
-                "label": "Gender",
-                "categories": [
-                  {
-                    "value": 0,
-                    "label": "Male",
-                    "checked": true,
-                    "master": 1
-                  },
-                  {
-                    "value": 1,
-                    "label": "Female",
-                    "checked": true,
-                    "master": 1
-                  }
-                ],
-                "expanded": false,
-                "_depth": 0,
-                "_id": "rdts1-2",
-                "_children": [
-                  "rdts1-2-0",
-                  "rdts1-2-1"
-                ],
-                "partial": false,
-                "checked": true,
-                "chosen": false
-              },
-              {
-                "value": 2,
-                "label": "35+",
-                "checked": true,
-                "master": 2,
-                "_depth": 1,
-                "_id": "rdts1-3-2",
-                "_parent": "rdts1-3"
-              }
-            ]}
+            list={!newType || newType.length === 0 ? tags : newType}
             setList={newList => onReorderList(newList)}
           >
             {getTags(tags, onTagRemove, readOnly, disabled, texts.labelRemove)}
