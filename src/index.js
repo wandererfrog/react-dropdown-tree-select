@@ -45,6 +45,8 @@ class DropdownTreeSelect extends Component {
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
     id: PropTypes.string,
+    onReorderList:PropTypes.func,
+    sortable: PropTypes.bool,
     searchPredicate: PropTypes.func,
     inlineSearchInput: PropTypes.bool,
   }
@@ -268,9 +270,14 @@ class DropdownTreeSelect extends Component {
     e.preventDefault()
   }
 
-  onReorderList = newList => {
+  onReorderList = (newList) => {
     this.setState({ tags: newList }, () => {
-      this.props.onChange(newList)
+      if(this.props.onReorderList){
+        this.props.onReorderList(newList)
+      }else{
+        this.props.onChange(newList)
+      }
+      
     })
   }
 
