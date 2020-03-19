@@ -332,7 +332,8 @@ class DropdownTreeSelect extends Component {
               tags={tags}
               onTagRemove={this.onTagRemove}
               onReorderList={this.onReorderList}
-              sortable={sortable}
+              newType={this.props.newType}
+              sortable
               {...commonProps}
             >
               {!inlineSearchInput && searchInput}

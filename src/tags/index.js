@@ -34,13 +34,24 @@ class Tags extends PureComponent {
     readOnly: PropTypes.bool,
     sortable: PropTypes.bool,
     onReorderList: PropTypes.func,
+    newType: PropTypes.array,
     disabled: PropTypes.bool,
     texts: PropTypes.object,
     children: PropTypes.node,
   }
 
   render() {
-    const { tags, onTagRemove, texts = {}, disabled, readOnly, sortable = false, onReorderList, children } = this.props
+    const {
+      tags,
+      onTagRemove,
+      texts = {},
+      disabled,
+      readOnly,
+      sortable = false,
+      onReorderList,
+      newType,
+      children,
+    } = this.props
     const lastItem = children || <span className="placeholder">{texts.placeholder || 'Choose...'}</span>
 
     return (
@@ -48,7 +59,10 @@ class Tags extends PureComponent {
         {!sortable ? (
           getTags(tags, onTagRemove, readOnly, disabled, texts.labelRemove)
         ) : (
-          <ReactSortable list={tags} setList={newList => onReorderList(newList)}>
+          <ReactSortable
+            list={!newType || newType.length === 0 ? tags : newType}
+            setList={newList => onReorderList(newList)}
+          >
             {getTags(tags, onTagRemove, readOnly, disabled, texts.labelRemove)}
           </ReactSortable>
         )}
